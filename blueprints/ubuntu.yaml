@@ -3,8 +3,7 @@ inputs: {}
 resources:
   Cloud_Machine_1:
     type: Cloud.Machine
-    properties:
-      
+    properties:    
       name: '${self.resourceName}'
       image: ubuntu1804
       flavor: small
@@ -20,6 +19,7 @@ resources:
         package:
          - wget
          - git
+         - apache2
         hostname: '${self.resourceName}'
         runcmd:
         #Add Jensenr Public Github key to Autorized_keys
@@ -29,4 +29,7 @@ resources:
          - sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g'  /etc/ssh/sshd_config
          - sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g'  /etc/ssh/sshd_config
          - systemctl restart sshd
+         - cd /var/www/html
+         - rm index.html
+         - wget https://raw.githubusercontent.com/rhjensen79/simple-website/master/www/index.html
         
