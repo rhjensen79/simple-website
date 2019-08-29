@@ -5,7 +5,7 @@ resources:
     type: Cloud.Machine
     properties:
       notify: 'no'
-      image: 'ubuntu1604'
+      image: 'ubuntu1804'
       flavor: 'small'
       constraints:
         - tag: 'region:frankfurt'
