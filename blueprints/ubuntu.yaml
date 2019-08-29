@@ -1,0 +1,19 @@
+#Demo blueprint for CodeStream
+inputs: {}
+resources:
+  Cloud_Machine_1:
+    type: Cloud.Machine
+    properties:
+      notify: 'no'
+      image: 'ubuntu1604'
+      flavor: 'small'
+      constraints:
+        - tag: 'region:frankfurt'
+      cloudConfig: |
+        #cloudconfig
+        runcmd:
+         - echo root:changeme|sudo chpasswd
+         - sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g'  /etc/ssh/sshd_config
+         - sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g'  /etc/ssh/sshd_config
+         - systemctl restart sshd
+#Git Test3
