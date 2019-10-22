@@ -5,7 +5,7 @@ resources:
     type: Cloud.Machine
     properties:    
       name: '${self.resourceName}'
-      image: ubuntu1804
+      image: ubuntu
       flavor: small
       constraints:
         - tag: 'region:frankfurt'
