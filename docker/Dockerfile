@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-MAINTAINER Robert Jensen "robert@robert-jensen.dk"
+LABEL maintainer="Robert Jensen robert@robert-jensen.dk"
 WORKDIR /tmp
 ADD docker/start.sh /
 RUN apt-get update && apt install -y \ 
