@@ -1,0 +1,23 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: simple-website
+  labels:
+    app: simple-website
+spec:
+  selector:
+    matchLabels:
+      app: simple-website
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: simple-website
+        tier: frontend
+    spec:
+      containers:
+      - image: robertjensen/simple-website:latest
+        name: simple-website
+        
