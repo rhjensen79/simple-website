@@ -4,5 +4,5 @@ WORKDIR /tmp
 ADD docker/start.sh /
 RUN apt-get update && apt install -y \ 
     apache2 \
-    git \
+    git
 ENTRYPOINT /start.sh
