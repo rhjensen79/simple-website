@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 MAINTAINER Robert Jensen "robert@robert-jensen.dk"
 WORKDIR /var/www/html
-ADD start.sh /
+ADD docker/start.sh /
 RUN apt-get update
 RUN apt install apache2 -y
 RUN apt install git -y
